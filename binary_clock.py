@@ -32,7 +32,6 @@ pygame.init()
 # Set the window size
 win = pygame.display.set_mode((WIDTH, HEIGHT))
 
-
 def draw_binary(num, x_start, y_start, max_length):
     binary = bin(num)[2:].zfill(max_length)
     for i, bit in enumerate(binary):
@@ -87,9 +86,12 @@ def main():
             hours = time_struct.tm_hour
             minutes = time_struct.tm_min
 
+            pygame.display.set_caption(f'Binary Clock - {hours:02d}:{minutes:02d}')
+
+
             # Draw hours, minutes, and seconds in binary
-            draw_binary(hours, 30, 30, 6)  # 24 hours need 5 bits
-            draw_binary(minutes, 30, 130, 6)  # 60 minutes need 6 bits
+            draw_binary(hours, 30, (HEIGHT // 2) - BLOCK_SIZE - GAP_SIZE, 6)  # 24 hours need 5 bits, but for lazy simmatry we use 6.
+            draw_binary(minutes, 30, HEIGHT // 2, 6)  # 60 minutes need 6 bits
 
             # Draw reference
             draw_reference()
