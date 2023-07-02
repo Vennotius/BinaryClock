@@ -38,7 +38,6 @@ def draw_binary(num, x_start, y_start, max_length):
     for i, bit in enumerate(binary):
         color = WHITE if bit == '1' else GRAY
         pygame.draw.rect(win, color, pygame.Rect(x_start + i * (BLOCK_SIZE + GAP_SIZE), y_start, BLOCK_SIZE, BLOCK_SIZE))
-        #pygame.draw.rect(win, color, pygame.Rect(x_start - i * (BLOCK_SIZE + GAP_SIZE), y_start, BLOCK_SIZE, BLOCK_SIZE))  # Align from right
 
 
 def draw_small_binary(num, x_start, y_start, max_length):
